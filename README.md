@@ -1,41 +1,46 @@
-# TypeScript Next.js example
+# Vacinômetro Brasil
+Vacinômetro para acompanhar a situação da vacinação contra COVID-19 no Brasil.
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+## Contribuindo
+Para contribuir, siga os seguintes passos:
 
-## Deploy your own
+- Faça um fork do repositório e clone o mesmo para o seu local
+- Adicione uma origin para o repositório original:
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+`git remote add upstream https://github.com/NickNish09/vacinometro-brasil.git`
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+- Crie uma nova branch a partir da `main`
 
-## How to use it?
+Use o padrão `feature/feature_name` ou `fix/fix_name` para nomear sua branch
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+Mantenha sua branch atualizada com o rebase:
 
-```bash
-npx create-next-app --example with-typescript with-typescript-app
-# or
-yarn create next-app --example with-typescript with-typescript-app
-```
+``` git pull upstream master --rebase ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+``` git push -f ```
 
-## Notes
+Faça um PR pra `main`, seguindo o padrão do template de Pull Request.
 
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```
-npm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
+*Utilize o padrão de commits para que seu commit seja válido: [Padrão de mensagem de commit](https://gist.github.com/brianclements/841ea7bffdb01346392c)*
 
 ```
-npm install --save-dev @types/react @types/react-dom @types/node
+<type>: <subject>
 ```
+Onde type é um dos seguintes tipos:
+- build:
+- ci:
+- docs:
+- feat:
+- fix:
+- perf:
+- refactor:
+- style:
+- test:
 
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
+Exemplos:
 
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
+`docs(changelog): update changelog to beta.5`
 
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
+`fix(release): need to depend on latest rxjs and zone.js`
+
+Utilize o verbo do commit no imperativo presente (add, update, need). Evite adding, updating...
