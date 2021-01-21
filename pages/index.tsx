@@ -1,3 +1,3 @@
-const IndexPage = () => <div>Vacinômetro</div>;
+const HomePage = () => <div>Vacinômetro</div>;
 
-export default IndexPage;
+export default HomePage;
