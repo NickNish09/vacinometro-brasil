@@ -815,6 +815,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@svg-maps/brazil@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@svg-maps/brazil/-/brazil-1.0.1.tgz#19a5e075e77a8491eeeaed906a9aa9f4d437e99d"
+  integrity sha512-prGIaDZWeV1VP0Qqm9nffOmZ2w+Ax5KgeOkJCmXkh3+DuLx4lwxxSOyKa3Qcldb2x9a19Mn554mISY7C3KcYkg==
+
 "@testing-library/dom@^7.28.1", "@testing-library/dom@^7.29.4":
   version "7.29.4"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.29.4.tgz#1647c2b478789621ead7a50614ad81ab5ae5b86c"
@@ -974,6 +979,21 @@
   integrity sha512-ItatOrnXDMAYpv6G8UCk2VhbYVTjZT9aorLtA/OzDN9XJ2GKcfam68jutoAcILdRjsRUO8qb7AmyObF77Q8QFw==
   dependencies:
     "@types/react" "^16"
+
+"@types/react-svg-map@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@types/react-svg-map/-/react-svg-map-2.1.0.tgz#55b97c64c7337d70a17e9cfce82db1e542f65703"
+  integrity sha512-w1E94mi5t024NMNocsiqH7veisQ2I4ExTw8/8b+Z9qnni2hTlORhz308FGBamM0vMjyVFDoozzm2XVjooj1M7A==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react@*":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.0.tgz#5af3eb7fad2807092f0046a1302b7823e27919b8"
+  integrity sha512-aj/L7RIMsRlWML3YB6KZiXB3fV2t41+5RBGYF8z+tAKU43Px8C3cYUZsDvf1/+Bm4FK21QWBrDutu8ZJ/70qOw==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^3.0.2"
 
 "@types/react@^16", "@types/react@^16.9.16":
   version "16.14.2"
@@ -7052,6 +7072,13 @@ react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
+
+react-svg-map@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-svg-map/-/react-svg-map-2.2.0.tgz#ecdeb8898e6e34953c83afbf7433a621925a8f0b"
+  integrity sha512-slZTt4ffXgOb3ND/WEHOc0ojX5lBEv9FKbTU3tWnTLZPQ9L0e686SBqgVxmsuTD+o52Aor87InMzAzDRTQedpA==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^16.12.0:
   version "16.14.0"
