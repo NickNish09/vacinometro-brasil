@@ -1,6 +1,9 @@
 @import '~antd/dist/antd.css';
 
+.container {
+    padding: 25px;
+}
+
 .map-container{
-    height: 500px;
-    width: 300px;
+    width: 100%;
 }
