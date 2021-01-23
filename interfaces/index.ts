@@ -4,7 +4,9 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
-  id: number;
+export type District = {
+  id: string | string[];
   name: string;
+  totalVacinated: number;
+  lastUpdated: Date;
 };
