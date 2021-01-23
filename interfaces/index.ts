@@ -5,7 +5,7 @@
 // import { User } from 'path/to/interfaces';
 
 export type District = {
-  id: string | string[];
+  id: string;
   name: string;
   totalVacinated: number;
   lastUpdated: Date;
