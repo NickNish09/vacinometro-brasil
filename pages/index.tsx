@@ -7,6 +7,7 @@ import { DEFAULT_REVALIDATE_TIME } from "../utils/constants";
 import { District } from "../interfaces";
 import findDistrictById from "../utils/findDistrictById";
 import { getCases } from "../services/api/cases";
+import { formatedDate, formatedNumber } from "../utils/formaters";
 
 const { Footer, Content } = Layout;
 const { Title } = Typography;
@@ -36,22 +37,6 @@ const HomePage = ({ data, updatedAt }: Props) => {
   };
 
   const districtData = findDistrictById(data, districtId);
-
-  function formatedNumber(x: number) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  }
-
-  function formatedDate(dateString: string) {
-    const date = new Date(dateString);
-    const day = date.getDate();
-    const month = date.getMonth() + 1;
-    const year = date.getFullYear();
-    const hour = date.getHours();
-    const minute = date.getMinutes();
-    const second = date.getSeconds();
-
-    return `${day}/${month}/${year} às ${hour}h${minute}m${second}s `;
-  }
 
   if (districtData)
     return (
