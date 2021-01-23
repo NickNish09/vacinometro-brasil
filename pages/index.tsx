@@ -34,7 +34,6 @@ const HomePage = ({ data, updatedAt }: Props) => {
       getEventAttribute(e, "id") || "total",
     );
   };
-  console.log(data);
 
   const districtData = findDistrictById(data, districtId);
 
