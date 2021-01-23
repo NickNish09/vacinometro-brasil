@@ -31,13 +31,13 @@ body {
     stroke-linecap: round;
     stroke-linejoin: round; }
 .svg-map__location {
-    fill: #cdf5d1;
+    fill: #deebf7;
     cursor: pointer; }
 .svg-map__location:focus, .svg-map__location:hover {
-    fill: #a1d99b;
+    fill: #9ecae1;
     outline: 0; }
 .svg-map__location[aria-checked=true] {
-    fill: #31a354; }
+    fill: #3182bd; }
 
 /* title select */
 .district-option{
