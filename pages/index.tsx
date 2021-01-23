@@ -34,11 +34,24 @@ const HomePage = ({ data, updatedAt }: Props) => {
       getEventAttribute(e, "id") || "total",
     );
   };
+  console.log(data);
 
   const districtData = findDistrictById(data, districtId);
 
   function formatedNumber(x: number) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  function formatedDate(dateString: string) {
+    const date = new Date(dateString);
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    const hour = date.getHours();
+    const minute = date.getMinutes();
+    const second = date.getSeconds();
+
+    return `${day}/${month}/${year} às ${hour}h${minute}m${second}s `;
   }
 
   if (districtData)
@@ -48,7 +61,11 @@ const HomePage = ({ data, updatedAt }: Props) => {
           <Row>
             <Col sm={24} md={12} xs={24}>
               <div className="map-container">
-                <SVGMap map={Brazil} onLocationClick={setDistrictByEvent} />
+                <SVGMap
+                  map={Brazil}
+                  onLocationClick={setDistrictByEvent}
+                  onLocationBlur={() => setDistrict("Brasil", "total")}
+                />
               </div>
             </Col>
             <Col sm={24} md={12} xs={24}>
@@ -57,7 +74,7 @@ const HomePage = ({ data, updatedAt }: Props) => {
                 <Title level={3}>
                   Vacinados: {formatedNumber(districtData.vaccinated)}
                 </Title>
-                <p>Última atualização: {updatedAt}</p>
+                <p>Última atualização: {formatedDate(updatedAt)}</p>
               </div>
             </Col>
           </Row>
