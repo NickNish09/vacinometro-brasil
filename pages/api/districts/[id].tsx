@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getDistrictData } from "../../../services/district";
 
 const CACHE_CONTROL_HEADER_VALUE =
-  "max-age=0, s-maxage=20, stale-while-revalidate, public";
+  "max-age=0, s-maxage=7200, stale-while-revalidate, public";
 
 const action = async (req: NextApiRequest, res: NextApiResponse) => {
   let { id } = req.query;
