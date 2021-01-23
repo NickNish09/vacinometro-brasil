@@ -8,7 +8,7 @@ const action = async (req: NextApiRequest, res: NextApiResponse) => {
   let { id } = req.query;
   id = Array.isArray(id) ? id[0] : id;
 
-  const district = getDistrictData(id);
+  const district = await getDistrictData(id);
 
   res.setHeader("Cache-Control", CACHE_CONTROL_HEADER_VALUE);
   res.status(200);
