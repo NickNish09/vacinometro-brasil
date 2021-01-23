@@ -6,7 +6,7 @@ import Brazil from "../lib/custom-brazil.regions";
 import { DEFAULT_REVALIDATE_TIME } from "../utils/constants";
 import { District } from "../interfaces";
 import findDistrictById from "../utils/findDistrictById";
-import { getCasesData } from "../services/casesData";
+import { getCases } from "../services/api/cases";
 
 const { Footer, Content } = Layout;
 const { Title } = Typography;
@@ -59,7 +59,7 @@ const HomePage = ({ data, updatedAt }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getCasesData();
+  const data = await getCases();
 
   return {
     props: {
