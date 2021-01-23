@@ -22,6 +22,7 @@ body {
     margin-top: 20px;
 }
 
+/* map */
 .svg-map {
     width: 100%;
     height: auto;
@@ -38,7 +39,14 @@ body {
 .svg-map__location[aria-checked=true] {
     fill: #31a354; }
 
+/* title select */
+.district-option{
+    width: 100%;
+}
 
+.district-select{
+    width: 100%;
+}
 
 @media only screen and (min-width: 700px) {
     .container {

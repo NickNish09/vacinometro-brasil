@@ -23,12 +23,23 @@ const HomePage = ({ data, updatedAt }: Props) => {
   const getEventAttribute = (event: Event, attribute: string) =>
     (event.target as HTMLElement).getAttribute(attribute);
 
-  const setDistrict = (e: Event) => {
-    setDistrictName(getEventAttribute(e, "name"));
-    setDistrictId(getEventAttribute(e, "id") || "total");
+  const setDistrict = (name: string, id: string) => {
+    setDistrictName(name);
+    setDistrictId(id);
+  };
+
+  const setDistrictByEvent = (e: Event) => {
+    setDistrict(
+      getEventAttribute(e, "name") || "Brasil",
+      getEventAttribute(e, "id") || "total",
+    );
   };
 
   const districtData = findDistrictById(data, districtId);
+
+  function formatedNumber(x: number) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
 
   if (districtData)
     return (
@@ -37,13 +48,15 @@ const HomePage = ({ data, updatedAt }: Props) => {
           <Row>
             <Col sm={24} md={12} xs={24}>
               <div className="map-container">
-                <SVGMap map={Brazil} onLocationClick={setDistrict} />
+                <SVGMap map={Brazil} onLocationClick={setDistrictByEvent} />
               </div>
             </Col>
             <Col sm={24} md={12} xs={24}>
               <div className="data-container">
-                <Title className="district-title">{districtName}</Title>
-                <p>Vacinados: {districtData.vaccinated}</p>
+                <Title>{districtName}</Title>
+                <Title level={3}>
+                  Vacinados: {formatedNumber(districtData.vaccinated)}
+                </Title>
                 <p>Última atualização: {updatedAt}</p>
               </div>
             </Col>
