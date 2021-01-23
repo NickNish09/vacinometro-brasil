@@ -6,5 +6,10 @@ export const getCasesData = async () => {
   const dataCSV = await requestCSV.text();
   const dataJSON = await csv().fromString(dataCSV);
 
-  return dataJSON;
+  const cases = dataJSON.map((district) => ({
+    ...district,
+    updatedAt: new Date().toString(),
+  }));
+
+  return cases;
 };
