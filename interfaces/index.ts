@@ -22,7 +22,7 @@ export type District = {
   tests_per_100k_inhabitants: number;
   vaccinated: number;
   vaccinated_per_100k_inhabitants: number;
-  date: number;
+  date: string;
   newCases: number;
   newDeaths: number;
   lastUpdated: Date;
