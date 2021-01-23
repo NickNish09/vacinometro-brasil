@@ -20,7 +20,7 @@ const TitleSelect = ({ setDistrict }: Props) => {
       labelInValue
       onChange={handleChange}
       className="district-select"
-      defaultValue={{ value: "todos" }}
+      defaultValue={{ value: "todos", key: "todos", label: "todos" }}
     >
       <Option value="todos" className="district-option">
         Brasil (todos)
