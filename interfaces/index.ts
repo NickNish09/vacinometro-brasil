@@ -4,7 +4,26 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
-  id: number;
-  name: string;
+export type District = {
+  country: string;
+  state: string;
+  totalCases: number;
+  totalCasesMS: number;
+  notConfirmedByMS: number;
+  deaths: number;
+  deathsMS: number;
+  URL: string;
+  deaths_per_100k_inhabitants: number;
+  totalCases_per_100k_inhabitants: number;
+  deaths_by_totalCases: number;
+  recovered: number;
+  suspects: number;
+  tests: number;
+  tests_per_100k_inhabitants: number;
+  vaccinated: number;
+  vaccinated_per_100k_inhabitants: number;
+  date: number;
+  newCases: number;
+  newDeaths: number;
+  lastUpdated: Date;
 };
