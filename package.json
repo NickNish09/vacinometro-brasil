@@ -10,6 +10,7 @@
     "lint": "eslint ./**/*.ts ./**/*.tsx && prettier --check ./**/*.ts ./**/*.tsx"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.4.0",
     "@svg-maps/brazil": "^1.0.1",
     "@types/csvtojson": "^1.1.5",
     "@types/react-svg-map": "^2.1.0",

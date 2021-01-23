@@ -27,3 +27,9 @@ export type District = {
   newDeaths: number;
   lastUpdated: Date;
 };
+
+export type SelectValue = {
+  value: string;
+  key: string;
+  label: string;
+};
