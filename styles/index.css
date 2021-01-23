@@ -1,9 +1,51 @@
 @import '~antd/dist/antd.css';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.layout-container{
+    min-height: 100vh;
+    overflow-y: auto;
+}
 
 .container {
-    padding: 25px;
+    padding: 15px;
 }
 
 .map-container{
     width: 100%;
+}
+
+.district-title{
+    margin-top: 20px;
+}
+
+.svg-map {
+    width: 100%;
+    height: auto;
+    stroke: #666;
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round; }
+.svg-map__location {
+    fill: #cdf5d1;
+    cursor: pointer; }
+.svg-map__location:focus, .svg-map__location:hover {
+    fill: #a1d99b;
+    outline: 0; }
+.svg-map__location[aria-checked=true] {
+    fill: #31a354; }
+
+
+
+@media only screen and (min-width: 700px) {
+    .container {
+        padding: 25px;
+    }
+
+    .data-container{
+        padding-left: 25px;
+    }
 }

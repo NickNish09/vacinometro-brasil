@@ -32,22 +32,33 @@ const HomePage = ({ data, updatedAt }: Props) => {
 
   if (districtData)
     return (
-      <Layout>
+      <Layout className="layout-container">
         <Content className="container">
           <Row>
-            <Col sm={24} md={12}>
+            <Col sm={24} md={12} xs={24}>
               <div className="map-container">
                 <SVGMap map={Brazil} onLocationClick={setDistrict} />
               </div>
             </Col>
-            <Col sm={24} md={12}>
-              <Title>Vacinômetro - {districtName}</Title>
-              <p>Vacinados: {districtData.vaccinated}</p>
-              <p>Última atualização: {updatedAt}</p>
+            <Col sm={24} md={12} xs={24}>
+              <div className="data-container">
+                <Title className="district-title">{districtName}</Title>
+                <p>Vacinados: {districtData.vaccinated}</p>
+                <p>Última atualização: {updatedAt}</p>
+              </div>
             </Col>
           </Row>
         </Content>
-        <Footer>Footer</Footer>
+        <Footer>
+          Fonte:{" "}
+          <a
+            href="https://covid19br.wcota.me/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            https://covid19br.wcota.me/
+          </a>{" "}
+        </Footer>
       </Layout>
     );
 
