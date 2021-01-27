@@ -20,6 +20,10 @@ body {
     color: #fff;
 }
 
+.footer p{
+    margin: 0;
+}
+
 .footer a {
     color: #fff;
 }
@@ -95,5 +99,11 @@ body {
 
     .data-container{
         padding-left: 25px;
+    }
+
+    .footer{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 }
