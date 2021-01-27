@@ -2,12 +2,18 @@ import { useState } from "react";
 import { SVGMap } from "react-svg-map";
 import { Row, Col, Typography, Layout } from "antd";
 import { GetStaticProps } from "next";
+import { MedicineBoxOutlined } from "@ant-design/icons";
 import Brazil from "../lib/custom-brazil.regions";
 import { DEFAULT_REVALIDATE_TIME } from "../utils/constants";
 import { District } from "../interfaces";
 import findDistrictById from "../utils/findDistrictById";
 import { getCases } from "../services/api/cases";
-import { formatedDate, formatedNumber } from "../utils/formaters";
+import {
+  formatedDate,
+  formatedNumber,
+  getPercentageBy100k,
+} from "../utils/formaters";
+import TitleSelect from "../components/TitleSelect";
 
 const { Footer, Content } = Layout;
 const { Title } = Typography;
@@ -18,7 +24,7 @@ export type Props = {
 };
 
 const HomePage = ({ data, updatedAt }: Props) => {
-  const [districtName, setDistrictName] = useState<string | null>("Brasil");
+  const [districtName, setDistrictName] = useState<string>("Brasil");
   const [districtId, setDistrictId] = useState<string>("total");
 
   const getEventAttribute = (event: Event, attribute: string) =>
@@ -30,10 +36,9 @@ const HomePage = ({ data, updatedAt }: Props) => {
   };
 
   const setDistrictByEvent = (e: Event) => {
-    setDistrict(
-      getEventAttribute(e, "name") || "Brasil",
-      getEventAttribute(e, "id") || "total",
-    );
+    const name = getEventAttribute(e, "name") || "Brasil";
+    const id = getEventAttribute(e, "id") || "total";
+    setDistrict(`${name} (${id.toUpperCase()})`, id);
   };
 
   const districtData = findDistrictById(data, districtId);
@@ -47,31 +52,59 @@ const HomePage = ({ data, updatedAt }: Props) => {
               <div className="map-container">
                 <SVGMap
                   map={Brazil}
-                  onLocationClick={setDistrictByEvent}
-                  onLocationBlur={() => setDistrict("Brasil", "total")}
+                  onLocationFocus={setDistrictByEvent}
+                  // onLocationBlur={() => setDistrict("Brasil", "total")}
+                  isLocationSelected={(location) =>
+                    districtId === location.id.toUpperCase()
+                  }
                 />
               </div>
             </Col>
             <Col sm={24} md={12} xs={24}>
               <div className="data-container">
-                <Title>{districtName}</Title>
-                <Title level={3}>
-                  Vacinados: {formatedNumber(districtData.vaccinated)}
+                <TitleSelect
+                  setDistrict={setDistrict}
+                  districtId={districtId}
+                  districtName={districtName}
+                />
+                <Title level={3} className="vaccinated-text">
+                  <MedicineBoxOutlined /> Vacinados:{" "}
+                  {formatedNumber(districtData.vaccinated)}
                 </Title>
-                <p>Última atualização: {formatedDate(updatedAt)}</p>
+                <p className="text-white">
+                  {getPercentageBy100k(
+                    districtData.vaccinated_per_100k_inhabitants,
+                  )}
+                  % da população
+                </p>
+                <p className="text-white text-last-updated">
+                  Última atualização: {formatedDate(updatedAt)}
+                </p>
               </div>
             </Col>
           </Row>
         </Content>
-        <Footer>
-          Fonte:{" "}
-          <a
-            href="https://covid19br.wcota.me/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            https://covid19br.wcota.me/
-          </a>{" "}
+        <Footer className="footer">
+          <p className="text-reference">
+            Fonte:{" "}
+            <a
+              href="https://covid19br.wcota.me/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              https://covid19br.wcota.me/
+            </a>
+          </p>
+          <br />
+          <p className="text-github">
+            <a
+              href="https://github.com/NickNish09/vacinometro-brasil"
+              target="_blank"
+              rel="noreferrer"
+            >
+              devnicknish © github
+            </a>
+          </p>
         </Footer>
       </Layout>
     );
