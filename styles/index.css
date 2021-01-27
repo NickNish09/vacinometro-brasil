@@ -8,10 +8,20 @@ body {
 .layout-container{
     min-height: 100vh;
     overflow-y: auto;
+    background-color: #232931;
 }
 
 .container {
-    padding: 15px;
+    padding: 25px;
+}
+
+.footer{
+    background-color: #0f1123;
+    color: #fff;
+}
+
+.footer a {
+    color: #fff;
 }
 
 .map-container{
@@ -31,13 +41,13 @@ body {
     stroke-linecap: round;
     stroke-linejoin: round; }
 .svg-map__location {
-    fill: #deebf7;
+    fill: #62cca7;
     cursor: pointer; }
 .svg-map__location:focus, .svg-map__location:hover {
-    fill: #9ecae1;
+    fill: #15a27b;
     outline: 0; }
 .svg-map__location[aria-checked=true] {
-    fill: #3182bd; }
+    fill: #15a27b; }
 
 /* title select */
 .district-option{
@@ -46,6 +56,28 @@ body {
 
 .district-select{
     width: 100%;
+    margin-bottom: 20px;
+}
+
+.district-select .ant-select-selector{
+    font-size: 25px;
+    height: 60px !important;
+    align-items: center;
+    background-color: #a6ccc4 !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.ant-select-arrow{
+    color: #fff !important;
+}
+
+.data-container{
+    margin-top: 15px;
+}
+
+.vaccinated-text{
+    color: #a6f0c6 !important;
 }
 
 @media only screen and (min-width: 700px) {
