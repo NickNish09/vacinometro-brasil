@@ -13,3 +13,7 @@ export function formatedDate(dateString: string) {
 
   return `${day}/${month}/${year} às ${hour}h${minute}m${second}s `;
 }
+
+export function getPercentageBy100k(numberPer100k: number): string {
+  return ((numberPer100k / 100000) * 100).toFixed(2);
+}

@@ -8,7 +8,11 @@ import { DEFAULT_REVALIDATE_TIME } from "../utils/constants";
 import { District } from "../interfaces";
 import findDistrictById from "../utils/findDistrictById";
 import { getCases } from "../services/api/cases";
-import { formatedDate, formatedNumber } from "../utils/formaters";
+import {
+  formatedDate,
+  formatedNumber,
+  getPercentageBy100k,
+} from "../utils/formaters";
 import TitleSelect from "../components/TitleSelect";
 
 const { Footer, Content } = Layout;
@@ -67,7 +71,15 @@ const HomePage = ({ data, updatedAt }: Props) => {
                   <MedicineBoxOutlined /> Vacinados:{" "}
                   {formatedNumber(districtData.vaccinated)}
                 </Title>
-                <p>Última atualização: {formatedDate(updatedAt)}</p>
+                <p className="text-white">
+                  {getPercentageBy100k(
+                    districtData.vaccinated_per_100k_inhabitants,
+                  )}
+                  % da população
+                </p>
+                <p className="text-white text-last-updated">
+                  Última atualização: {formatedDate(updatedAt)}
+                </p>
               </div>
             </Col>
           </Row>

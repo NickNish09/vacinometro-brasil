@@ -24,6 +24,14 @@ body {
     color: #fff;
 }
 
+.text-white{
+    color: #fff;
+}
+
+.text-last-updated{
+    margin-top: 20px;
+}
+
 .map-container{
     width: 100%;
 }
