@@ -3,7 +3,7 @@ export function formatedNumber(x: number) {
 }
 
 export function formatedDate(dateString: string) {
-  const date = new Date(dateString);
+  const date = new Date(Date.parse(dateString));
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
