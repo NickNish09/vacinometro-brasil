@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import TitleSelect from "../../components/TitleSelect";
+import TitleSelect from "../../src/components/TitleSelect";
 
 describe("TitleSelect", () => {
   it("renders the default district name", () => {

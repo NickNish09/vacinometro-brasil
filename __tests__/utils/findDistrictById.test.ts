@@ -1,5 +1,5 @@
-import findDistrictById from "../../utils/findDistrictById";
-import { District } from "../../interfaces";
+import findDistrictById from "../../src/utils/findDistrictById";
+import { District } from "../../src/interfaces";
 import districtFactory from "../../__factories__/districtFactory";
 
 describe("findDistrictById", () => {

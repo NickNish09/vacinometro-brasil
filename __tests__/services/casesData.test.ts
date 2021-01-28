@@ -1,4 +1,4 @@
-import { getCasesData } from "../../services/casesData";
+import { getCasesData } from "../../src/services/casesData";
 
 describe("getCasesData", () => {
   const fakeFetch = jest.fn();

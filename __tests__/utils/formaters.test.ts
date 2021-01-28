@@ -2,7 +2,7 @@ import {
   formatedDate,
   formatedNumber,
   getPercentageBy100k,
-} from "../../utils/formaters";
+} from "../../src/utils/formaters";
 
 describe("formatedNumber", () => {
   it("returns a integer with dots separating miles", () => {

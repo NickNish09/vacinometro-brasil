@@ -1,4 +1,4 @@
-import { getDistrictData } from "../../services/district";
+import { getDistrictData } from "../../src/services/district";
 
 describe("getDistrictData", () => {
   const fakeFetch = jest.fn();
