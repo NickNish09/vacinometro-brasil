@@ -1,4 +1,4 @@
-import { District } from "../interfaces";
+import { District } from "../src/interfaces";
 
 export default function districtFactory(params?: Partial<District>): District {
   const defaultParams: District = {
