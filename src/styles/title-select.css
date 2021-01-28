@@ -1,0 +1,22 @@
+/* title select */
+.district-option{
+    width: 100%;
+}
+
+.district-select{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.district-select .ant-select-selector{
+    font-size: 25px;
+    height: 60px !important;
+    align-items: center;
+    background-color: #a6ccc4 !important;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.ant-select-arrow{
+    color: #fff !important;
+}

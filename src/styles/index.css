@@ -48,46 +48,6 @@ body {
     margin-top: 20px;
 }
 
-/* map */
-.svg-map {
-    width: 100%;
-    height: auto;
-    stroke: #666;
-    stroke-width: 1;
-    stroke-linecap: round;
-    stroke-linejoin: round; }
-.svg-map__location {
-    fill: #62cca7;
-    cursor: pointer; }
-.svg-map__location:focus, .svg-map__location:hover {
-    fill: #15a27b;
-    outline: 0; }
-.svg-map__location[aria-checked=true] {
-    fill: #15a27b; }
-
-/* title select */
-.district-option{
-    width: 100%;
-}
-
-.district-select{
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.district-select .ant-select-selector{
-    font-size: 25px;
-    height: 60px !important;
-    align-items: center;
-    background-color: #a6ccc4 !important;
-    color: #fff !important;
-    font-weight: bold;
-}
-
-.ant-select-arrow{
-    color: #fff !important;
-}
-
 .data-container{
     margin-top: 15px;
 }

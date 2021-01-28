@@ -1,6 +1,6 @@
 import { Select } from "antd";
-import { SelectValue } from "../interfaces";
-import brazilDistricts from "../lib/brazil-districts";
+import { SelectValue } from "../../interfaces";
+import brazilDistricts from "../../lib/brazil-districts";
 
 export type Props = {
   /* eslint-disable no-unused-vars */
