@@ -14,8 +14,9 @@ import {
   getPercentageBy100k,
 } from "../utils/formaters";
 import TitleSelect from "../components/TitleSelect";
+import HomeFooter from "../components/HomeFooter";
 
-const { Footer, Content } = Layout;
+const { Content } = Layout;
 const { Title } = Typography;
 
 export type Props = {
@@ -84,28 +85,7 @@ const HomePage = ({ data, updatedAt }: Props) => {
             </Col>
           </Row>
         </Content>
-        <Footer className="footer">
-          <p className="text-reference">
-            Fonte:{" "}
-            <a
-              href="https://covid19br.wcota.me/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              https://covid19br.wcota.me/
-            </a>
-          </p>
-          <br />
-          <p className="text-github">
-            <a
-              href="https://github.com/NickNish09/vacinometro-brasil"
-              target="_blank"
-              rel="noreferrer"
-            >
-              devnicknish © github
-            </a>
-          </p>
-        </Footer>
+        <HomeFooter />
       </Layout>
     );
 
