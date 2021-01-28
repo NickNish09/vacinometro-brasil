@@ -3,7 +3,7 @@ export function formatedNumber(x: number) {
 }
 
 export function formatedDate(dateString: string) {
-  const date = new Date(dateString);
+  const date = new Date(Date.parse(dateString));
   const day = date.getDate();
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
@@ -11,7 +11,7 @@ export function formatedDate(dateString: string) {
   const minute = date.getMinutes();
   const second = date.getSeconds();
 
-  return `${day}/${month}/${year} às ${hour}h${minute}m${second}s `;
+  return `${day}/${month}/${year} às ${hour}h${minute}m${second}s`;
 }
 
 export function getPercentageBy100k(numberPer100k: number): string {

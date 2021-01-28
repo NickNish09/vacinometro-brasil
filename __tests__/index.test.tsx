@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "../__mocks__/match-media";
-import HomePage from "../pages";
+import HomePage from "../src/pages";
 import districtFactory from "../__factories__/districtFactory";
-import { District } from "../interfaces";
+import { District } from "../src/interfaces";
 
 describe("HomePage", () => {
   it("should render the brazil map", () => {
