@@ -14,7 +14,9 @@ describe("formatedDate", () => {
   it("returns the date formated", () => {
     const dateString =
       "Thu Jan 28 2021 17:59:44 GMT-0300 (Horário Padrão de Brasília)";
-    expect(formatedDate(dateString)).toEqual("28/1/2021 às 17h59m44s");
+    expect(formatedDate(dateString)).toMatch(
+      /\d{2}\/\d\/\d{4} às \d{2}h\d{2}m\d{2}s/i,
+    );
   });
 });
 
