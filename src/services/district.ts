@@ -6,7 +6,5 @@ export const getDistrictData = async (id: string): Promise<District> => {
   const districtData: District = casesData.find(
     ({ state }) => state.toLowerCase() === id.toLowerCase(),
   );
-  districtData.lastUpdated = new Date();
-
   return districtData;
 };

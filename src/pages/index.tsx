@@ -77,6 +77,14 @@ const HomePage = ({ data, updatedAt }: Props) => {
                   )}
                   % da população
                 </p>
+                <p className="text-white">
+                  Total de contaminações por 100 mil habitantes:{" "}
+                  {formatedNumber(districtData.totalCases_per_100k_inhabitants)}
+                </p>
+                <p className="text-white">
+                  Novos casos: {formatedNumber(districtData.newCases)}
+                </p>
+
                 <p className="text-white text-last-updated">
                   Última atualização: {formatedDate(updatedAt)}
                 </p>
