@@ -14,6 +14,8 @@ import {
   getPercentageBy100k,
 } from "../utils/formaters";
 import TitleSelect from "../components/TitleSelect";
+import DateSelect from "../components/DateSelect";
+import { yesterday } from "../utils/dates";
 
 const { Footer, Content } = Layout;
 const { Title } = Typography;
@@ -26,6 +28,7 @@ export type Props = {
 const HomePage = ({ data, updatedAt }: Props) => {
   const [districtName, setDistrictName] = useState<string>("Brasil");
   const [districtId, setDistrictId] = useState<string>("total");
+  const [casesDate, setCasesDate] = useState<Date | Date[]>(yesterday());
 
   const getEventAttribute = (event: Event, attribute: string) =>
     (event.target as HTMLElement).getAttribute(attribute);
@@ -46,6 +49,16 @@ const HomePage = ({ data, updatedAt }: Props) => {
   if (districtData)
     return (
       <Layout className="layout-container">
+        <Content className="container">
+          <Row>
+            <Col sm={48} md={24} xs={48}>
+              <DateSelect
+                setCasesDate={setCasesDate}
+                currentCaseDate={casesDate}
+              />
+            </Col>
+          </Row>
+        </Content>
         <Content className="container">
           <Row>
             <Col sm={24} md={12} xs={24}>
