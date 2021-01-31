@@ -2,6 +2,7 @@ import {
   formatedDate,
   formatedNumber,
   getPercentageBy100k,
+  formatedCvsDate,
 } from "../../src/utils/formaters";
 
 describe("formatedNumber", () => {
@@ -17,6 +18,15 @@ describe("formatedDate", () => {
     expect(formatedDate(dateString)).toMatch(
       /\d{2}\/\d\/\d{4} às \d{2}h\d{2}m\d{2}s/i,
     );
+  });
+});
+
+describe("formatedCvsDate", () => {
+  it("return the date formated in the same format as the date in the csv read", () => {
+    const date = new Date(
+      "Thu Jan 28 2021 17:59:44 GMT-0300 (Horário Padrão de Brasília)",
+    );
+    expect(formatedCvsDate(date)).toMatch("2021-01-28");
   });
 });
 
