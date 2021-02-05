@@ -6,11 +6,12 @@ import { MedicineBoxOutlined } from "@ant-design/icons";
 import Brazil from "../lib/custom-brazil.regions";
 import { DEFAULT_REVALIDATE_TIME } from "../utils/constants";
 import { District } from "../interfaces";
-import findDistrictById from "../utils/findDistrictById";
+import findDistrictByIdAndDate from "../utils/findDistrictById";
 import { getCases } from "../services/api/cases";
 import {
   formatedDate,
   formatedNumber,
+  formatedCvsDate,
   getPercentageBy100k,
 } from "../utils/formaters";
 import TitleSelect from "../components/TitleSelect";
@@ -28,7 +29,7 @@ export type Props = {
 const HomePage = ({ data, updatedAt }: Props) => {
   const [districtName, setDistrictName] = useState<string>("Brasil");
   const [districtId, setDistrictId] = useState<string>("total");
-  const [casesDate, setCasesDate] = useState<Date | Date[]>(yesterday());
+  const [casesDate, setCasesDate] = useState<Date>(yesterday());
 
   const getEventAttribute = (event: Event, attribute: string) =>
     (event.target as HTMLElement).getAttribute(attribute);
@@ -44,7 +45,11 @@ const HomePage = ({ data, updatedAt }: Props) => {
     setDistrict(`${name} (${id.toUpperCase()})`, id);
   };
 
-  const districtData = findDistrictById(data, districtId);
+  const districtData = findDistrictByIdAndDate(
+    data,
+    districtId,
+    formatedCvsDate(casesDate),
+  );
 
   if (districtData)
     return (
@@ -55,6 +60,8 @@ const HomePage = ({ data, updatedAt }: Props) => {
               <DateSelect
                 setCasesDate={setCasesDate}
                 currentCaseDate={casesDate}
+                maximumDate={new Date(data[data.length - 1].date)}
+                minimumDate={new Date(data[0].date)}
               />
             </Col>
           </Row>
@@ -143,7 +150,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       data,
-      updatedAt: new Date().toString(),
+      updatedAt: yesterday().toString(),
     },
     revalidate: DEFAULT_REVALIDATE_TIME,
   };

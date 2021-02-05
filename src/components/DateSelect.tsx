@@ -2,14 +2,22 @@ import DatePicker from "react-date-picker/dist/entry.nostyle";
 
 export type Props = {
   /* eslint-disable no-unused-vars */
-  setCasesDate: (date: Date | Date[]) => void;
+  setCasesDate: (date: Date) => void;
   /* eslint-enable no-unused-vars */
   currentCaseDate: Date | Date[];
+  maximumDate: Date;
+  minimumDate: Date;
 };
 
-const DateSelect = ({ setCasesDate, currentCaseDate }: Props) => {
+const DateSelect = ({
+  setCasesDate,
+  currentCaseDate,
+  maximumDate,
+  minimumDate,
+}: Props) => {
   function handleChange(selectedDate: Date | Date[]) {
-    setCasesDate(selectedDate);
+    const date = Array.isArray(selectedDate) ? selectedDate[0] : selectedDate;
+    setCasesDate(date);
   }
 
   return (
@@ -18,6 +26,8 @@ const DateSelect = ({ setCasesDate, currentCaseDate }: Props) => {
         onChange={(date) => date && handleChange(date)}
         value={currentCaseDate}
         className="dateField"
+        maxDate={maximumDate}
+        minDate={minimumDate}
       />
     </div>
   );
