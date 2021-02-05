@@ -6,14 +6,17 @@ import { MedicineBoxOutlined } from "@ant-design/icons";
 import Brazil from "../lib/custom-brazil.regions";
 import { DEFAULT_REVALIDATE_TIME } from "../utils/constants";
 import { District } from "../interfaces";
-import findDistrictById from "../utils/findDistrictById";
+import findDistrictByIdAndDate from "../utils/findDistrictById";
 import { getCases } from "../services/api/cases";
 import {
   formatedDate,
   formatedNumber,
+  formatedCvsDate,
   getPercentageBy100k,
 } from "../utils/formaters";
 import TitleSelect from "../components/TitleSelect";
+import DateSelect from "../components/DateSelect";
+import { yesterday } from "../utils/dates";
 
 const { Footer, Content } = Layout;
 const { Title } = Typography;
@@ -26,6 +29,7 @@ export type Props = {
 const HomePage = ({ data, updatedAt }: Props) => {
   const [districtName, setDistrictName] = useState<string>("Brasil");
   const [districtId, setDistrictId] = useState<string>("total");
+  const [casesDate, setCasesDate] = useState<Date>(yesterday());
 
   const getEventAttribute = (event: Event, attribute: string) =>
     (event.target as HTMLElement).getAttribute(attribute);
@@ -41,11 +45,27 @@ const HomePage = ({ data, updatedAt }: Props) => {
     setDistrict(`${name} (${id.toUpperCase()})`, id);
   };
 
-  const districtData = findDistrictById(data, districtId);
+  const districtData = findDistrictByIdAndDate(
+    data,
+    districtId,
+    formatedCvsDate(casesDate),
+  );
 
   if (districtData)
     return (
       <Layout className="layout-container">
+        <Content className="container">
+          <Row>
+            <Col sm={48} md={24} xs={48}>
+              <DateSelect
+                setCasesDate={setCasesDate}
+                currentCaseDate={casesDate}
+                maximumDate={new Date(data[data.length - 1].date)}
+                minimumDate={new Date(data[0].date)}
+              />
+            </Col>
+          </Row>
+        </Content>
         <Content className="container">
           <Row>
             <Col sm={24} md={12} xs={24}>
@@ -77,6 +97,14 @@ const HomePage = ({ data, updatedAt }: Props) => {
                   )}
                   % da população
                 </p>
+                <p className="text-white">
+                  Total de contaminações por 100 mil habitantes:{" "}
+                  {formatedNumber(districtData.totalCases_per_100k_inhabitants)}
+                </p>
+                <p className="text-white">
+                  Novos casos: {formatedNumber(districtData.newCases)}
+                </p>
+
                 <p className="text-white text-last-updated">
                   Última atualização: {formatedDate(updatedAt)}
                 </p>
@@ -122,7 +150,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       data,
-      updatedAt: new Date().toString(),
+      updatedAt: yesterday().toString(),
     },
     revalidate: DEFAULT_REVALIDATE_TIME,
   };

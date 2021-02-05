@@ -1,14 +1,16 @@
 import { District } from "../interfaces";
 
-const findDistrictById = (
+const findDistrictByIdAndDate = (
   districts: District[],
   id: string,
+  dateString: string,
 ): District | undefined => {
   const district = districts.find(
-    ({ state }) => state.toLowerCase() === id.toLowerCase(),
+    ({ state, date }) =>
+      state.toLowerCase() === id.toLowerCase() && date === dateString,
   );
 
   return district;
 };
 
-export default findDistrictById;
+export default findDistrictByIdAndDate;

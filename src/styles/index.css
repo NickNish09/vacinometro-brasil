@@ -1,6 +1,7 @@
 @import '~antd/dist/antd.css';
+@import 'react-date-picker/dist/DatePicker.css';
+@import 'react-calendar/dist/Calendar.css';
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap');
-
 html {
     background-color: #232931;
 }
@@ -9,7 +10,7 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.layout-container{
+.layout-container {
     min-height: 100vh;
     overflow-y: auto;
     background-color: #232931;
@@ -19,12 +20,12 @@ body {
     padding: 25px;
 }
 
-.footer{
+.footer {
     background-color: #0f1123;
     color: #fff;
 }
 
-.footer p{
+.footer p {
     margin: 0;
 }
 
@@ -32,50 +33,62 @@ body {
     color: #fff;
 }
 
-.text-white{
+.text-white {
     color: #fff;
 }
 
-.text-last-updated{
+.text-last-updated {
     margin-top: 20px;
 }
 
-.map-container{
+.map-container {
     width: 100%;
 }
 
-.district-title{
+.district-title {
     margin-top: 20px;
 }
 
+
 /* map */
+
 .svg-map {
     width: 100%;
     height: auto;
     stroke: #666;
     stroke-width: 1;
     stroke-linecap: round;
-    stroke-linejoin: round; }
+    stroke-linejoin: round;
+}
+
 .svg-map__location {
     fill: #62cca7;
-    cursor: pointer; }
-.svg-map__location:focus, .svg-map__location:hover {
+    cursor: pointer;
+}
+
+.svg-map__location:focus,
+.svg-map__location:hover {
     fill: #15a27b;
-    outline: 0; }
+    outline: 0;
+}
+
 .svg-map__location[aria-checked=true] {
-    fill: #15a27b; }
+    fill: #15a27b;
+}
+
 
 /* title select */
-.district-option{
+
+.district-option {
     width: 100%;
 }
 
-.district-select{
+.district-select {
     width: 100%;
     margin-bottom: 20px;
 }
 
-.district-select .ant-select-selector{
+.district-select .ant-select-selector {
     font-size: 25px;
     height: 60px !important;
     align-items: center;
@@ -84,15 +97,28 @@ body {
     font-weight: bold;
 }
 
-.ant-select-arrow{
+.dateContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dateField {
+    font-size: 20px;
+    height: 45px !important;
+    background-color: #fff !important;
+    font-weight: bold;
+}
+
+.ant-select-arrow {
     color: #fff !important;
 }
 
-.data-container{
+.data-container {
     margin-top: 15px;
 }
 
-.vaccinated-text{
+.vaccinated-text {
     color: #a6f0c6 !important;
 }
 
@@ -100,12 +126,10 @@ body {
     .container {
         padding: 25px;
     }
-
-    .data-container{
+    .data-container {
         padding-left: 25px;
     }
-
-    .footer{
+    .footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
